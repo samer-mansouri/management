@@ -46,8 +46,10 @@ const FichesTable = (props) => {
     MainService.getDetailsList()
       .then(res => {
         console.log(res.data)
-        dispatch(setFiches(res.data))
-        //setFiches(res.data)
+        if(res.data.length > 0){
+          dispatch(setFiches(res.data))
+        }
+          //setFiches(res.data)
       })
       .catch(err => {
         console.log(err)
